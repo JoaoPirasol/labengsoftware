@@ -28,6 +28,7 @@
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    margin-bottom: 4px;
   }
   a {
     text-decoration: none;
