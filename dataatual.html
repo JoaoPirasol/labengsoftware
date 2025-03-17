@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Exemplo JavaScript</title>
+</head>
+<body>
+    <h1>Data Atual</h1>
+    <p id="data"></p>
+
+    <script type="text/javascript">
+        function formatarData() {
+            const diasDaSemana = ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'];
+            const meses = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+
+            const dataAtual = new Date();
+            const diaDaSemana = diasDaSemana[dataAtual.getDay()];
+            const diaDoMes = dataAtual.getDate();
+            const mes = meses[dataAtual.getMonth()];
+            const ano = dataAtual.getFullYear();
+
+            return `${diaDaSemana.charAt(0).toUpperCase() + diaDaSemana.slice(1)}, ${diaDoMes} de ${mes} de ${ano}`;
+        }
+
+        document.getElementById('data').textContent = formatarData();
+    </script>
+</body>
+</html>
