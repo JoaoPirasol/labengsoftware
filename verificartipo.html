@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Tipo de Dado</title>
+    <script type="text/javascript">
+        let dado = prompt("Digite um dado qualquer");
+
+        let dadoConvertido = parseFloat(dado);
+
+        if (confirm("Deseja verificar o tipo do dado informado?")) {
+            if (!isNaN(dadoConvertido)) {
+                alert("O tipo do dado informado é: Number");
+            } else {
+                alert("O tipo do dado informado é: String");
+            }
+        } else {
+            alert("Obrigado por visitar esta página");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
