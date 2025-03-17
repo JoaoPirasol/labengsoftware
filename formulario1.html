@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulário de Cadastro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: inline-block;
+      width: 150px;
+      font-weight: bold;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+      width: 250px;
+      padding: 5px;
+    }
+
+    .error-message {
+      color: red;
+      margin-left: 5px;
+      font-size: 0.9em;
+    }
+
+    .radio-group {
+      display: inline-block;
+      margin-left: 5px;
+    }
+    .radio-group label {
+      font-weight: normal;
+      margin-right: 15px;
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .buttons input[type="submit"],
+    .buttons input[type="reset"] {
+      padding: 8px 16px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Formulário de Cadastro</h1>
+    <form>
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input 
+          type="text" 
+          id="nome" 
+          name="nome" 
+          placeholder="Digite seu nome completo" 
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          placeholder="fulano.com" 
+          required
+        />
+        <span class="error-message">Email inválido</span>
+      </div>
+
+      <div class="form-group">
+        <label for="data-nascimento">Data Nasc.:</label>
+        <input 
+          type="text" 
+          id="data-nascimento" 
+          name="data-nascimento" 
+          placeholder="dd/mm/aaaa" 
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="telefone-fixo">Telefone Fixo:</label>
+        <input 
+          type="text" 
+          id="telefone-fixo" 
+          name="telefone-fixo" 
+          placeholder="(99) 9999-9999"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="telefone-celular">Celular:</label>
+        <input 
+          type="text" 
+          id="telefone-celular" 
+          name="telefone-celular" 
+          placeholder="(99) 99999-9999"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="area-atuacao">Área de Atuação:</label>
+        <input 
+          type="text" 
+          id="area-atuacao" 
+          name="area-atuacao" 
+          placeholder="Digite sua área de atuação"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="lattes">Lattes:</label>
+        <input 
+          type="text" 
+          id="lattes" 
+          name="lattes" 
+          placeholder="Digite aqui o endereço para seu Lattes"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="matricula">Matrícula:</label>
+        <input 
+          type="text" 
+          id="matricula" 
+          name="matricula" 
+          placeholder="Digite sua matrícula"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Tipo:</label>
+        <div class="radio-group">
+          <input 
+            type="radio" 
+            id="professor" 
+            name="tipo" 
+            value="professor"
+          />
+          <label for="professor">Professor</label>
+          <input 
+            type="radio" 
+            id="aluno" 
+            name="tipo" 
+            value="aluno"
+            checked
+          />
+          <label for="aluno">Aluno</label>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <input type="submit" value="Enviar" />
+        <input type="reset" value="Redefinir" />
+      </div>
+    </form>
+  </div>
+</body>
+</html>
