@@ -29,8 +29,8 @@
         <input type="text" placeholder="(99)99999-9999"><br><br>
 
         <label>Tipo:</label>
-        <input type="radio" name="tipo" value="professor" onclick="atualizarFormulario()"> Professor
-        <input type="radio" name="tipo" value="aluno" onclick="atualizarFormulario()"> Aluno<br><br>
+        <input type="radio" name="tipo" value="professor" id="professor" onclick="atualizarFormulario()"> Professor
+        <input type="radio" name="tipo" value="aluno" id="aluno" onclick="atualizarFormulario()"> Aluno<br><br>
 
         <div id="campoArea" class="hidden">
             <label>Área:</label>
@@ -52,16 +52,23 @@
 
         <br>
         <button type="submit">Enviar</button>
-        <button type="reset">Redefinir</button>
+        <button type="reset" onclick="resetFormulario()">Redefinir</button>
     </form>
 
     <script>
         function atualizarFormulario() {
-            let tipoSelecionado = document.querySelector('input[name="tipo"]:checked').value;
+            let professorSelecionado = document.getElementById("professor").checked;
+            let alunoSelecionado = document.getElementById("aluno").checked;
             
-            document.getElementById("campoArea").classList.toggle("hidden", tipoSelecionado !== "professor");
-            document.getElementById("campoLattes").classList.toggle("hidden", tipoSelecionado !== "professor");
-            document.getElementById("campoCurso").classList.toggle("hidden", tipoSelecionado !== "aluno");
+            document.getElementById("campoArea").classList.toggle("hidden", !professorSelecionado);
+            document.getElementById("campoLattes").classList.toggle("hidden", !professorSelecionado);
+            document.getElementById("campoCurso").classList.toggle("hidden", !alunoSelecionado);
+        }
+
+        function resetFormulario() {
+            document.getElementById("campoArea").classList.add("hidden");
+            document.getElementById("campoLattes").classList.add("hidden");
+            document.getElementById("campoCurso").classList.add("hidden");
         }
 
         document.getElementById("email").addEventListener("input", function() {
