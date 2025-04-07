@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calculadora</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.onload = function() {
+      const app = document.getElementById('app');
+      const calculator = document.createElement('div');
+      calculator.style.display = 'grid';
+      calculator.style.gridTemplateColumns = 'repeat(4, 1fr)';
+      calculator.style.gridTemplateRows = 'minmax(60px, auto) repeat(5, 60px)';
+      calculator.style.gap = '10px';
+      calculator.style.width = '300px';
+      calculator.style.margin = '50px auto';
+      calculator.style.backgroundColor = '#000';
+      calculator.style.padding = '10px';
+      calculator.style.borderRadius = '10px';
+      calculator.style.boxSizing = 'border-box';
+
+      const display = document.createElement('input');
+      display.type = 'text';
+      display.readOnly = true;
+      display.style.gridColumn = '1 / span 4';
+      display.style.fontSize = '2em';
+      display.style.textAlign = 'right';
+      display.style.border = 'none';
+      display.style.borderRadius = '5px';
+      display.style.padding = '10px';
+      display.style.marginBottom = '10px';
+      display.style.boxSizing = 'border-box';
+      calculator.appendChild(display);
+
+      const buttons = [
+        { text: 'AC',   color: '#a5a5a5', action: () => { display.value = ''; } },
+        { text: '+/-',  color: '#a5a5a5', action: () => { if (display.value) { display.value = String(-parseFloat(display.value)); } } },
+        { text: '%',    color: '#a5a5a5', action: () => { if (display.value) { display.value = String(parseFloat(display.value) / 100); } } },
+        { text: '÷',    color: '#f09a36', action: () => { display.value += '/'; } },
+        { text: '7',    color: '#333',    action: () => { display.value += '7'; } },
+        { text: '8',    color: '#333',    action: () => { display.value += '8'; } },
+        { text: '9',    color: '#333',    action: () => { display.value += '9'; } },
+        { text: '×',    color: '#f09a36', action: () => { display.value += '*'; } },
+        { text: '4',    color: '#333',    action: () => { display.value += '4'; } },
+        { text: '5',    color: '#333',    action: () => { display.value += '5'; } },
+        { text: '6',    color: '#333',    action: () => { display.value += '6'; } },
+        { text: '-',    color: '#f09a36', action: () => { display.value += '-'; } },
+        { text: '1',    color: '#333',    action: () => { display.value += '1'; } },
+        { text: '2',    color: '#333',    action: () => { display.value += '2'; } },
+        { text: '3',    color: '#333',    action: () => { display.value += '3'; } },
+        { text: '+',    color: '#f09a36', action: () => { display.value += '+'; } },
+        { text: '0',    color: '#333',    gridColumn: '1 / span 2', action: () => { display.value += '0'; } },
+        { text: ',',    color: '#333',    action: () => { display.value += '.'; } },
+        { text: '=',    color: '#f09a36', action: () => { 
+            try { display.value = eval(display.value); } 
+            catch { display.value = 'Erro'; } 
+          } 
+        }
+      ];
+
+      buttons.forEach(btn => {
+        const button = document.createElement('button');
+        button.textContent = btn.text;
+        button.style.fontSize = '1.5em';
+        button.style.border = 'none';
+        button.style.borderRadius = '5px';
+        button.style.cursor = 'pointer';
+        button.style.outline = 'none';
+        button.style.color = '#fff';
+        button.style.backgroundColor = btn.color;
+        button.style.display = 'flex';
+        button.style.alignItems = 'center';
+        button.style.justifyContent = 'center';
+        if (btn.gridColumn) {
+          button.style.gridColumn = btn.gridColumn;
+        }
+        button.addEventListener('click', btn.action);
+        calculator.appendChild(button);
+      });
+
+      app.appendChild(calculator);
+    };
+  </script>
+</body>
+</html>
